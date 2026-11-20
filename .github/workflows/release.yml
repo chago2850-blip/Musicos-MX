@@ -1,8 +1,8 @@
 # Músicos MX — compila los instaladores de todas las plataformas y los publica en el Release
 name: Instaladores
 on:
-  release:
-    types: [published]
+  push:
+    tags: ['v*']
   workflow_dispatch:
     inputs:
       tag:
@@ -11,9 +11,19 @@ on:
 permissions:
   contents: write
 env:
-  TAG: ${{ github.event.release.tag_name || inputs.tag }}
+  TAG: ${{ inputs.tag || github.ref_name }}
 jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Crear el release (si no existe)
+        env: { GH_TOKEN: '${{ secrets.GITHUB_TOKEN }}' }
+        run: |
+          gh release view "$TAG" >/dev/null 2>&1 || gh release create "$TAG" --title "Músicos MX ${TAG#v}" --notes-file .github/release-notes.md
+          gh release upload "$TAG" docs/Manual-Musicos-MX.pdf --clobber
   windows:
+    needs: release
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
@@ -25,8 +35,11 @@ jobs:
       - name: Subir al release
         shell: bash
         env: { GH_TOKEN: '${{ secrets.GITHUB_TOKEN }}' }
-        run: gh release upload "$TAG" release/Musicos-MX-Setup-*.exe release/Musicos-MX-*-portable.exe --clobber
+        run: |
+          cd release && 7z a -tzip "Musicos-MX-${TAG#v}-win-x64.zip" ./win-unpacked/* >/dev/null && cd ..
+          gh release upload "$TAG" release/Musicos-MX-Setup-*.exe release/Musicos-MX-*-portable.exe release/Musicos-MX-*-win-x64.zip --clobber
   macos:
+    needs: release
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
@@ -40,6 +53,7 @@ jobs:
         env: { GH_TOKEN: '${{ secrets.GITHUB_TOKEN }}' }
         run: gh release upload "$TAG" release/*.dmg release/*-mac-*.zip --clobber
   linux-android:
+    needs: release
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
@@ -58,5 +72,4 @@ jobs:
           bash android/build-apk.sh
       - name: Subir al release
         env: { GH_TOKEN: '${{ secrets.GITHUB_TOKEN }}' }
-        # no reemplaza archivos ya publicados (p. ej. subidos y probados manualmente)
-        run: for f in release/*.AppImage release/*.deb release/*.rpm release/*.apk; do gh release upload "$TAG" "$f" || echo "Ya existe: $f"; done
+        run: gh release upload "$TAG" release/*.AppImage release/*.deb release/*.rpm release/*.apk --clobber
