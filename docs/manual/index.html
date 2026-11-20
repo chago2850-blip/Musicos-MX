@@ -1,0 +1,933 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Manual del usuario — Músicos MX</title><link rel="icon" href="img/logo.png">
+<style>
+:root{--a:#ff3d7f;--g:#ffb547;--t:#2ee6c5;--bg:#0f1117;--p:#171b24;--tx:#e6e9f0;--d:#9aa3b8;--l:#2a3040}
+*{box-sizing:border-box}body{margin:0;font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,sans-serif;background:var(--bg);color:var(--tx)}
+nav{position:fixed;top:0;left:0;bottom:0;width:290px;overflow:auto;background:var(--p);border-right:1px solid var(--l);padding:18px 14px}
+nav .brand{display:flex;gap:10px;align-items:center;font-weight:800;font-size:18px;margin-bottom:14px}nav .brand img{width:36px;border-radius:8px}
+nav a{display:block;color:var(--d);text-decoration:none;padding:3px 6px;border-radius:5px;font-size:14px}nav a:hover{background:#232a38;color:#fff}nav a.l3{padding-left:20px;font-size:13px}
+main{margin-left:290px;padding:30px 54px 80px;max-width:1080px}
+h1{font-size:36px;margin:0 0 6px;background:linear-gradient(90deg,var(--a),var(--g));-webkit-background-clip:text;background-clip:text;color:transparent}
+h2{margin-top:46px;padding-bottom:6px;border-bottom:2px solid var(--l);font-size:26px}h3{margin-top:28px;color:var(--g)}
+a{color:var(--t)}img{max-width:100%;border-radius:10px;border:1px solid var(--l);box-shadow:0 10px 30px rgba(0,0,0,.4);margin:10px 0}
+table{border-collapse:collapse;width:100%;margin:14px 0;font-size:14.5px}td,th{border:1px solid var(--l);padding:7px 10px;vertical-align:top}th{background:#1d2230;text-align:left}tr:nth-child(even) td{background:#141821}
+code{background:#1d2230;padding:1px 6px;border-radius:4px;font-size:.92em}pre{background:#0a0c10;padding:14px;border-radius:8px;overflow:auto;border:1px solid var(--l)}pre code{background:none;padding:0}
+blockquote{border-left:4px solid var(--g);margin:14px 0;padding:6px 16px;background:#1a1810;color:#e8dcc0;border-radius:0 8px 8px 0}
+hr{border:0;border-top:1px solid var(--l);margin:30px 0}
+@media (max-width:900px){nav{position:static;width:auto;max-height:none}main{margin:0;padding:18px}}
+@media print{nav{display:none}main{margin:0;padding:0 8mm;max-width:none}body{background:#fff;color:#111;font-size:11pt}h1{color:#c2185b;-webkit-text-fill-color:#c2185b}h2{border-color:#ddd;page-break-before:auto}h3{color:#b26a00}th{background:#f2f2f2}tr:nth-child(even) td{background:#fafafa}td,th{border-color:#ccc}code,pre{background:#f4f4f4;color:#111;border-color:#ddd}img{box-shadow:none;border-color:#ccc;page-break-inside:avoid}a{color:#00796b}blockquote{background:#fff8e1;color:#5d4300}table{page-break-inside:auto}tr{page-break-inside:avoid}}
+</style></head><body>
+<nav><div class="brand"><img src="img/logo.png" alt="">Músicos MX</div><a class="l2" href="#1-introduccion">1. Introducción</a>
+<a class="l3" href="#1-1-caracteristicas-principales">1.1 Características principales</a>
+<a class="l3" href="#1-2-si-vienes-de-otra-estacion-profesional">1.2 Si vienes de otra estación profesional</a>
+<a class="l3" href="#1-3-requisitos-del-sistema">1.3 Requisitos del sistema</a>
+<a class="l2" href="#2-instalacion">2. Instalación</a>
+<a class="l3" href="#2-1-windows">2.1 Windows</a>
+<a class="l3" href="#2-2-macos">2.2 macOS</a>
+<a class="l3" href="#2-3-linux">2.3 Linux</a>
+<a class="l3" href="#2-4-android">2.4 Android</a>
+<a class="l3" href="#2-5-primer-inicio">2.5 Primer inicio</a>
+<a class="l2" href="#3-conceptos-basicos">3. Conceptos básicos</a>
+<a class="l2" href="#4-la-interfaz">4. La interfaz</a>
+<a class="l3" href="#4-1-barra-de-menus">4.1 Barra de menús</a>
+<a class="l3" href="#4-2-barra-de-herramientas">4.2 Barra de herramientas</a>
+<a class="l3" href="#4-3-pestanas-y-paneles">4.3 Pestañas y paneles</a>
+<a class="l3" href="#4-4-barra-de-estado">4.4 Barra de estado</a>
+<a class="l2" href="#5-sesiones">5. Sesiones</a>
+<a class="l3" href="#5-1-crear">5.1 Crear</a>
+<a class="l3" href="#5-2-guardar">5.2 Guardar</a>
+<a class="l3" href="#5-3-abrir">5.3 Abrir</a>
+<a class="l3" href="#5-4-autoguardado">5.4 Autoguardado</a>
+<a class="l3" href="#5-5-historial">5.5 Historial</a>
+<a class="l2" href="#6-pistas">6. Pistas</a>
+<a class="l3" href="#6-1-crear-pistas">6.1 Crear pistas</a>
+<a class="l3" href="#6-2-encabezado-de-pista">6.2 Encabezado de pista</a>
+<a class="l3" href="#6-3-congelar-commit">6.3 Congelar / Commit</a>
+<a class="l3" href="#6-4-pistas-inactivas-y-ocultas">6.4 Pistas inactivas y ocultas</a>
+<a class="l2" href="#7-grabacion">7. Grabación</a>
+<a class="l3" href="#7-1-preparacion">7.1 Preparación</a>
+<a class="l3" href="#7-2-grabar">7.2 Grabar</a>
+<a class="l3" href="#7-3-punch-in-out">7.3 Punch in/out</a>
+<a class="l3" href="#7-4-grabacion-en-bucle-con-tomas">7.4 Grabación en bucle con tomas</a>
+<a class="l3" href="#7-5-latencia">7.5 Latencia</a>
+<a class="l2" href="#8-edicion">8. Edición</a>
+<a class="l3" href="#8-1-modos-de-edicion">8.1 Modos de edición</a>
+<a class="l3" href="#8-2-herramientas">8.2 Herramientas</a>
+<a class="l3" href="#8-3-navegar">8.3 Navegar</a>
+<a class="l3" href="#8-4-operaciones-con-clips">8.4 Operaciones con clips</a>
+<a class="l3" href="#8-5-marcadores">8.5 Marcadores</a>
+<a class="l3" href="#8-6-bucle">8.6 Bucle</a>
+<a class="l3" href="#8-7-navegador-de-clips">8.7 Navegador de clips</a>
+<a class="l3" href="#8-8-importar">8.8 Importar</a>
+<a class="l2" href="#9-editor-midi-e-instrumentos">9. Editor MIDI e instrumentos</a>
+<a class="l3" href="#9-1-abrir">9.1 Abrir</a>
+<a class="l3" href="#9-2-editar-notas">9.2 Editar notas</a>
+<a class="l3" href="#9-3-teclado-virtual">9.3 Teclado virtual</a>
+<a class="l3" href="#9-4-instrumentos-integrados">9.4 Instrumentos integrados</a>
+<a class="l3" href="#9-5-teclados-midi-externos">9.5 Teclados MIDI externos</a>
+<a class="l2" href="#10-mezcla">10. Mezcla</a>
+<a class="l3" href="#10-1-el-canal">10.1 El canal</a>
+<a class="l3" href="#10-2-inserciones">10.2 Inserciones</a>
+<a class="l3" href="#10-3-envios-y-buses-auxiliares">10.3 Envíos y buses auxiliares</a>
+<a class="l3" href="#10-4-panoramizador-3d-binaural">10.4 Panoramizador 3D binaural</a>
+<a class="l3" href="#10-5-automatizacion">10.5 Automatización</a>
+<a class="l2" href="#11-complementos-incluidos">11. Complementos incluidos</a>
+<a class="l2" href="#12-audiosuite-procesamiento-fuera-de-linea">12. AudioSuite (procesamiento fuera de línea)</a>
+<a class="l2" href="#13-inteligencia-artificial">13. Inteligencia artificial</a>
+<a class="l3" href="#13-1-asistente-de-sesion-lenguaje-natural">13.1 Asistente de sesión (lenguaje natural)</a>
+<a class="l3" href="#13-2-separar-stems">13.2 Separar stems</a>
+<a class="l3" href="#13-3-transcribir-voz-a-texto">13.3 Transcribir voz a texto</a>
+<a class="l3" href="#13-4-afinacion-automatica">13.4 Afinación automática</a>
+<a class="l3" href="#13-5-limpieza-de-ruido-de-voz">13.5 Limpieza de ruido de voz</a>
+<a class="l3" href="#13-6-audio-a-midi">13.6 Audio a MIDI</a>
+<a class="l3" href="#13-7-detectar-tempo-y-tonalidad">13.7 Detectar tempo y tonalidad</a>
+<a class="l3" href="#13-8-cuantizar-audio-por-ataques">13.8 Cuantizar audio por ataques</a>
+<a class="l3" href="#13-9-mezcla-automatica">13.9 Mezcla automática</a>
+<a class="l3" href="#13-10-masterizacion-asistida">13.10 Masterización asistida</a>
+<a class="l3" href="#13-11-elegir-las-mejores-tomas-auto-comping">13.11 Elegir las mejores tomas (auto-comping)</a>
+<a class="l3" href="#13-12-compositor-ia">13.12 Compositor IA</a>
+<a class="l3" href="#13-13-analisis-de-sonoridad">13.13 Análisis de sonoridad</a>
+<a class="l2" href="#14-video-y-post-produccion">14. Video y post-producción</a>
+<a class="l2" href="#15-exportacion">15. Exportación</a>
+<a class="l3" href="#15-1-bounce-de-mezcla-y-stems">15.1 Bounce de mezcla y stems</a>
+<a class="l3" href="#15-2-fabrica-de-bounces">15.2 Fábrica de bounces</a>
+<a class="l3" href="#15-3-midi">15.3 MIDI</a>
+<a class="l2" href="#16-preferencias">16. Preferencias</a>
+<a class="l2" href="#17-atajos-de-teclado">17. Atajos de teclado</a>
+<a class="l2" href="#18-uso-en-android">18. Uso en Android</a>
+<a class="l2" href="#19-solucion-de-problemas">19. Solución de problemas</a>
+<a class="l2" href="#20-codigo-fuente-compilacion-y-contribucion">20. Código fuente, compilación y contribución</a>
+<a class="l2" href="#21-licencia">21. Licencia</a></nav>
+<main><h1 id="manual-del-usuario-de-musicos-mx">Manual del usuario de Músicos MX</h1>
+<p><strong>Versión 1.0.0 · Estación de trabajo de audio digital libre con inteligencia artificial</strong></p>
+<p>Desarrollador: <strong>Santiago Miguel</strong> · Tel. 744 354 8848 · <a href="mailto:chago2850@gmail.com">chago2850@gmail.com</a>
+Licencia: <strong>GNU GPL versión 3 o posterior</strong></p>
+<p><img src="img/edicion.png" alt="Músicos MX"></p>
+<hr>
+<h2 id="1-introduccion">1. Introducción</h2>
+<p>Músicos MX es una estación de trabajo de audio digital (DAW, por sus siglas en inglés) para grabar, editar, mezclar, masterizar y exportar música, podcasts y audio para video. Su flujo de trabajo se inspira en el de las estaciones profesionales que se usan en los estudios de grabación (ventana de Edición y ventana de Mezcla, modos de edición Shuffle/Slip/Spot/Grid, herramienta inteligente, listas de reproducción para tomas, AudioSuite, buses auxiliares, automatización, bounce de stems), y añade un conjunto de <strong>funciones de inteligencia artificial que se ejecutan en tu propio equipo</strong> para ahorrarte trabajo repetitivo.</p>
+<h3 id="1-1-caracteristicas-principales">1.1 Características principales</h3>
+<ul>
+<li>Grabación multipista de audio con preconteo, metrónomo, punch in/out y grabación en bucle con tomas.</li>
+<li>Pistas de audio, de instrumento (sintetizador y baterías integradas), MIDI, buses auxiliares y video.</li>
+<li>Edición no destructiva: mover, recortar, dividir, fundidos, ganancia de clip, duplicar, copiar/pegar, consolidar, varispeed, quitar silencios, cuantizar.</li>
+<li>Editor MIDI (rollo de piano) con carril de velocidad, cuantización, humanización, transposición, ajuste a escala y teclado virtual.</li>
+<li>Mezclador con 6 inserciones y 4 envíos por canal, salidas a buses, paneo estéreo o <strong>3D binaural</strong>, faders con medidores de pico y medidor de sonoridad LUFS en el master.</li>
+<li>13 complementos (plugins) integrados: EQ de 7 bandas, compresor, limitador/maximizador, compuerta, de-esser, reverberación, retardo, coro/flanger, saturación, filtro, trémolo/auto-paneo, imagen estéreo y doblador de voz.</li>
+<li>Automatización de volumen y paneo con modos Leer, Touch, Latch y Escribir, y edición con lápiz.</li>
+<li>Procesos AudioSuite: normalizar (pico o LUFS), ganancia, invertir, polaridad, eliminar DC, silencio, estiramiento de tiempo sin cambiar el tono, cambio de tono sin cambiar la duración, reducción de ruido, afinación automática y render de inserciones.</li>
+<li><strong>IA local</strong>: separación de stems, transcripción de voz a texto, audio a MIDI, afinación automática, limpieza de ruido, detección de tempo y tonalidad, cuantización de audio por ataques, mezcla automática, masterización asistida con referencia, selección automática de las mejores tomas, compositor de batería/acordes/bajo/melodía y un asistente que entiende órdenes en español.</li>
+<li>Exportación a WAV (16, 24 o 32 bits flotante) y MP3, stems por pista, <strong>fábrica de bounces</strong> (mezcla, instrumental, a cappella y stems en un solo ZIP) y archivos MIDI.</li>
+<li>Sincronización con video para post-producción y exportación de subtítulos SRT.</li>
+<li>Multiplataforma: Windows, macOS, Linux (.deb, .rpm, AppImage) y Android.</li>
+<li>100 % software libre bajo GPL-3.0 o posterior: puedes usarlo, estudiarlo, modificarlo y compartirlo sin límites.</li>
+</ul>
+<h3 id="1-2-si-vienes-de-otra-estacion-profesional">1.2 Si vienes de otra estación profesional</h3>
+<table>
+<thead>
+<tr>
+<th>Concepto habitual</th>
+<th>En Músicos MX</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Edit Window / Mix Window</td>
+<td>Pestañas <strong>Edición</strong> y <strong>Mezcla</strong> (Ctrl+= alterna)</td>
+</tr>
+<tr>
+<td>Shuffle / Slip / Spot / Grid</td>
+<td>Mismos modos, teclas F1–F4</td>
+</tr>
+<tr>
+<td>Smart Tool, Trim, Selector, Grabber, Scrubber, Pencil, Zoomer</td>
+<td>Barra de herramientas, teclas F5–F10</td>
+</tr>
+<tr>
+<td>Playlists / comping</td>
+<td><strong>Listas de reproducción</strong> (selector “Toma” en cada pista) y <strong>Elegir mejores tomas (IA)</strong></td>
+</tr>
+<tr>
+<td>Memory Locations</td>
+<td><strong>Marcadores</strong> (Ctrl+5)</td>
+</tr>
+<tr>
+<td>AudioSuite</td>
+<td>Menú <strong>AudioSuite</strong></td>
+</tr>
+<tr>
+<td>Clip Gain</td>
+<td><strong>Ganancia de clip</strong> (Ctrl+Shift+↑/↓)</td>
+</tr>
+<tr>
+<td>Strip Silence</td>
+<td><strong>Quitar silencios</strong> (Ctrl+U)</td>
+</tr>
+<tr>
+<td>Elastic Audio / Varispeed</td>
+<td><strong>Varispeed</strong> y AudioSuite › Compresión/Expansión de tiempo</td>
+</tr>
+<tr>
+<td>Beat Detective</td>
+<td><strong>IA › Cuantizar audio por ataques</strong></td>
+</tr>
+<tr>
+<td>Bounce Mix / Bounce Factory</td>
+<td><strong>Exportar / Bounce</strong> (Ctrl+Alt+B) y <strong>Fábrica de bounces</strong></td>
+</tr>
+<tr>
+<td>Track Freeze / Commit</td>
+<td><strong>Pista › Congelar / Commit</strong></td>
+</tr>
+<tr>
+<td>Track Pin</td>
+<td><strong>Fijar arriba</strong> (botón 📌)</td>
+</tr>
+<tr>
+<td>Speech-to-Text</td>
+<td><strong>IA › Transcribir voz a texto</strong> (Whisper)</td>
+</tr>
+<tr>
+<td>Stem Separator</td>
+<td><strong>IA › Separar stems</strong></td>
+</tr>
+<tr>
+<td>Macros / asistente de sesión</td>
+<td><strong>Asistente IA</strong> (Ctrl+K)</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>Músicos MX es un proyecto independiente. No está afiliado ni respaldado por Avid Technology; los nombres de productos de terceros se mencionan solo como referencia.</p>
+</blockquote>
+<h3 id="1-3-requisitos-del-sistema">1.3 Requisitos del sistema</h3>
+<table>
+<thead>
+<tr>
+<th>Sistema</th>
+<th>Mínimo</th>
+<th>Recomendado</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Windows</td>
+<td>Windows 10 de 64 bits, 4 GB de RAM</td>
+<td>Windows 11, 8 GB de RAM o más, interfaz de audio</td>
+</tr>
+<tr>
+<td>macOS</td>
+<td>macOS 11 Big Sur (Intel o Apple Silicon)</td>
+<td>macOS 13 o posterior, 8 GB de RAM</td>
+</tr>
+<tr>
+<td>Linux</td>
+<td>Distribución de 64 bits con PulseAudio o PipeWire</td>
+<td>Ubuntu 22.04+/Fedora 38+, PipeWire</td>
+</tr>
+<tr>
+<td>Android</td>
+<td>Android 7.0 con WebView actualizado, 3 GB de RAM</td>
+<td>Android 11+, tableta, audífonos</td>
+</tr>
+</tbody></table>
+<p>Para la transcripción de voz se necesita Internet <strong>solo la primera vez</strong> (descarga del modelo libre Whisper, de 40 a 250 MB según el tamaño elegido).</p>
+<hr>
+<h2 id="2-instalacion">2. Instalación</h2>
+<p>Descarga el instalador de tu sistema desde la sección <strong>Releases</strong> del repositorio <code>Musicos-MX</code> en GitHub.</p>
+<h3 id="2-1-windows">2.1 Windows</h3>
+<ol>
+<li>Ejecuta <code>Musicos-MX-Setup-1.0.0.exe</code>.</li>
+<li>Elige la carpeta de instalación (o deja la predeterminada) y pulsa <strong>Instalar</strong>.</li>
+<li>Se crean accesos directos en el escritorio y en el menú Inicio.</li>
+<li>Si Windows SmartScreen muestra un aviso (“Windows protegió su PC”), pulsa <strong>Más información › Ejecutar de todas formas</strong>: el aviso aparece porque el instalador no está firmado con un certificado comercial.</li>
+</ol>
+<p>También existe una versión <strong>portable</strong> (<code>Musicos-MX-1.0.0-portable.exe</code>) que no requiere instalación.</p>
+<h3 id="2-2-macos">2.2 macOS</h3>
+<ol>
+<li>Abre <code>Musicos-MX-1.0.0-mac-&lt;arquitectura&gt;.dmg</code> (arm64 para Apple Silicon M1/M2/M3/M4/M5, x64 para Intel) o descomprime el <code>.zip</code>.</li>
+<li>Arrastra <strong>Músicos MX</strong> a la carpeta <strong>Aplicaciones</strong>.</li>
+<li>La primera vez, haz <strong>clic derecho › Abrir</strong> y confirma (la app no está notarizada por Apple). Si macOS indica que “está dañada”, ejecuta en Terminal: <code>xattr -cr &quot;/Applications/Músicos MX.app&quot;</code>.</li>
+<li>Al grabar por primera vez, autoriza el acceso al <strong>micrófono</strong> en Ajustes del Sistema › Privacidad y seguridad › Micrófono.</li>
+</ol>
+<h3 id="2-3-linux">2.3 Linux</h3>
+<ul>
+<li><strong>Debian, Ubuntu, Linux Mint, Pop!_OS</strong> (<code>.deb</code>): <code>sudo apt install ./musicos-mx_1.0.0_amd64.deb</code></li>
+<li><strong>Fedora, openSUSE, RHEL, Rocky</strong> (<code>.rpm</code>): <code>sudo dnf install ./musicos-mx-1.0.0.x86_64.rpm</code> (o <code>sudo zypper install ...</code>)</li>
+<li><strong>Cualquier distribución</strong> (AppImage): <code>chmod +x Musicos-MX-1.0.0.AppImage &amp;&amp; ./Musicos-MX-1.0.0.AppImage</code></li>
+</ul>
+<p>La aplicación aparece en el menú de aplicaciones dentro de la categoría <strong>Sonido y video</strong>.</p>
+<h3 id="2-4-android">2.4 Android</h3>
+<ol>
+<li>Copia <code>Musicos-MX-1.0.0.apk</code> al teléfono o tableta y ábrelo.</li>
+<li>Si el sistema lo pide, permite <strong>instalar apps de origen desconocido</strong> para tu gestor de archivos o navegador.</li>
+<li>Al grabar por primera vez, concede el permiso de <strong>micrófono</strong>.</li>
+<li>Los archivos exportados se guardan en la carpeta <strong>Descargas/MusicosMX</strong>.</li>
+</ol>
+<h3 id="2-5-primer-inicio">2.5 Primer inicio</h3>
+<p><img src="img/bienvenida.png" alt="Pantalla de bienvenida"></p>
+<p>Al abrir Músicos MX aparece la pantalla de bienvenida con:</p>
+<ul>
+<li><strong>Nueva sesión</strong>: crea una sesión vacía eligiendo nombre, frecuencia de muestreo (44.1, 48, 88.2 o 96 kHz), profundidad de bits de exportación, tempo y compás.</li>
+<li><strong>Abrir sesión</strong>: abre un archivo <code>.mmxs</code>.</li>
+<li><strong>Recuperar autoguardado</strong>: aparece si hay una copia automática de la última sesión.</li>
+<li><strong>Plantillas</strong>: Sesión vacía, Grabación de banda, Producción de beat, Podcast, Post-producción de video y Masterización.</li>
+</ul>
+<hr>
+<h2 id="3-conceptos-basicos">3. Conceptos básicos</h2>
+<ul>
+<li><strong>Sesión</strong>: tu proyecto. Contiene pistas, clips, mezcla, marcadores, tempo y todo el audio. Se guarda como un único archivo <code>.mmxs</code> (un ZIP con el audio en WAV de 32 bits flotante y la descripción de la sesión en JSON), fácil de respaldar o compartir.</li>
+<li><strong>Pista</strong>: un carril horizontal en la ventana de Edición y un canal en la ventana de Mezcla. Tipos: <strong>Audio</strong>, <strong>Instrumento</strong> (genera sonido a partir de notas MIDI), <strong>MIDI</strong>, <strong>Auxiliar</strong> (bus para efectos compartidos o submezclas) y <strong>Video</strong>.</li>
+<li><strong>Clip</strong>: un fragmento de audio o de notas MIDI colocado en una pista. Editar un clip <strong>nunca modifica el archivo original</strong> (edición no destructiva).</li>
+<li><strong>Lista de reproducción (toma)</strong>: cada pista puede tener varias versiones de su contenido. Útil para grabar varias tomas y elegir la mejor.</li>
+<li><strong>Inserción</strong>: un efecto colocado en serie en un canal (EQ, compresor, etc.).</li>
+<li><strong>Envío</strong>: una copia de la señal enviada a un bus auxiliar (p. ej. una reverberación compartida).</li>
+<li><strong>Bounce / exportar</strong>: convertir la sesión (o parte) en un archivo de audio.</li>
+</ul>
+<hr>
+<h2 id="4-la-interfaz">4. La interfaz</h2>
+<h3 id="4-1-barra-de-menus">4.1 Barra de menús</h3>
+<p><strong>Archivo, Edición, Vista, Pista, Clip, Evento, AudioSuite, IA, Ventana y Ayuda.</strong> A la derecha se muestran el nombre de la sesión (un punto • indica cambios sin guardar) y la latencia de salida.</p>
+<h3 id="4-2-barra-de-herramientas">4.2 Barra de herramientas</h3>
+<p>De izquierda a derecha:</p>
+<ol>
+<li><strong>Modos de edición</strong>: Shuffle, Slip, Spot, Grid (F1–F4).</li>
+<li><strong>Herramientas</strong>: Zoom 🔍, Recorte ⇤⇥, Selector I, Mano ✋, Inteligente ✦, Scrub ◎, Lápiz ✎ (F5–F10).</li>
+<li><strong>Rejilla</strong>: valor de la cuadrícula (1 compás, 1/2, 1/4, 1/8, 1/16, 1/32 y tresillos).</li>
+<li><strong>Transporte</strong>: volver al inicio, retroceder un compás, detener, reproducir, avanzar un compás, ir al final, <strong>grabar</strong>, <strong>bucle</strong> y <strong>metrónomo</strong>.</li>
+<li><strong>Contadores</strong>: el principal (clic para alternar entre Compases|Tiempos|Ticks, Min:Seg, Código de tiempo y Muestras) y el secundario.</li>
+<li><strong>Tempo</strong>, <strong>compás</strong>, <strong>tonalidad</strong> y <strong>preconteo</strong> (0, 1 o 2 compases antes de grabar).</li>
+<li><strong>Zoom</strong>: alejar, acercar, ajustar sesión a la ventana.</li>
+</ol>
+<h3 id="4-3-pestanas-y-paneles">4.3 Pestañas y paneles</h3>
+<ul>
+<li><strong>Edición</strong>: línea de tiempo con pistas y clips.</li>
+<li><strong>Mezcla</strong>: consola de canales.</li>
+<li><strong>Editor MIDI</strong>: rollo de piano.</li>
+<li>Botón <strong>☰</strong>: Navegador de clips (lado izquierdo).</li>
+<li>Botón <strong>🎬</strong>: ventana de video.</li>
+<li>Botón <strong>✨</strong>: Asistente de IA (lado derecho).</li>
+</ul>
+<h3 id="4-4-barra-de-estado">4.4 Barra de estado</h3>
+<p>Muestra la última acción, el rango seleccionado, la sonoridad momentánea <strong>LUFS-M</strong> del master durante la reproducción y el formato de la sesión.</p>
+<hr>
+<h2 id="5-sesiones">5. Sesiones</h2>
+<h3 id="5-1-crear">5.1 Crear</h3>
+<p><strong>Archivo › Nueva sesión</strong> (Ctrl+N) o desde la bienvenida. Recomendaciones: 48 kHz para video y uso general, 44.1 kHz si el destino final es CD, 96 kHz solo si lo necesitas (ocupa el doble de espacio).</p>
+<h3 id="5-2-guardar">5.2 Guardar</h3>
+<p><strong>Archivo › Guardar</strong> (Ctrl+S) y <strong>Guardar como</strong> (Ctrl+Shift+S). En escritorio se abre el diálogo del sistema; en Android se guarda en <em>Descargas/MusicosMX</em>.</p>
+<h3 id="5-3-abrir">5.3 Abrir</h3>
+<p><strong>Archivo › Abrir sesión</strong> (Ctrl+O) o haz doble clic sobre un archivo <code>.mmxs</code> en tu explorador de archivos (asociación creada por el instalador).</p>
+<h3 id="5-4-autoguardado">5.4 Autoguardado</h3>
+<p>Cada 90 segundos, si hay cambios, la sesión se copia en el almacenamiento interno de la aplicación. Si el programa se cierra inesperadamente, usa <strong>Recuperar autoguardado</strong> en la pantalla de bienvenida. Puedes desactivarlo en <strong>Preferencias</strong>.</p>
+<h3 id="5-5-historial">5.5 Historial</h3>
+<p>Todas las acciones se pueden deshacer (Ctrl+Z) y rehacer (Ctrl+Shift+Z), hasta 200 pasos. <strong>Ventana › Historial de deshacer</strong> muestra la lista; haz clic en una acción para volver a ese punto.</p>
+<hr>
+<h2 id="6-pistas">6. Pistas</h2>
+<h3 id="6-1-crear-pistas">6.1 Crear pistas</h3>
+<p><strong>Pista › Nuevas pistas</strong> (Ctrl+Shift+N) o el botón <strong>+ Pista</strong>. Indica cantidad, tipo, formato (mono/estéreo), nombre e instrumento. Las pistas nuevas se insertan debajo de la pista seleccionada.</p>
+<h3 id="6-2-encabezado-de-pista">6.2 Encabezado de pista</h3>
+<ul>
+<li><strong>Nombre</strong> (editable directamente).</li>
+<li><strong>● Grabar</strong>: arma la pista para grabación.</li>
+<li><strong>I</strong> (solo audio): monitorización de entrada; escuchas lo que entra por el micrófono a través de los efectos de la pista.</li>
+<li><strong>S</strong> Solo (Shift+clic: solo exclusivo) y <strong>M</strong> Silencio.</li>
+<li><strong>📌 Fijar</strong>: mantiene la pista en la parte superior de la lista (útil en sesiones grandes).</li>
+<li><strong>Toma</strong>: selector de lista de reproducción (+ Nueva vacía, + Duplicar).</li>
+<li><strong>Vista</strong>: Clips, Volumen o Paneo (para ver y editar la automatización).</li>
+<li><strong>Modo de automatización</strong>: off, Leer, Touch, Latch, Escribir.</li>
+<li><strong>Entrada</strong> (audio): Entrada 1, Entrada 2 o Estéreo 1-2. En pistas de instrumento, botón <strong>🎹</strong> para elegir el sonido.</li>
+<li>Medidor de nivel a la derecha.</li>
+<li>Arrastra el <strong>borde inferior</strong> para cambiar la altura.</li>
+</ul>
+<p>Clic derecho sobre el encabezado: renombrar, color, duplicar, eliminar, activar/desactivar, ocultar, fijar, congelar/commit, listas de reproducción, mejores tomas (IA), instrumento, compositor IA, panoramizador 3D y limpiar automatización.</p>
+<h3 id="6-3-congelar-commit">6.3 Congelar / Commit</h3>
+<p><strong>Pista › Congelar / Commit</strong> renderiza la pista con todos sus efectos a una nueva pista de audio y desactiva la original (que puedes reactivar). Ahorra procesador y fija el sonido de instrumentos virtuales.</p>
+<h3 id="6-4-pistas-inactivas-y-ocultas">6.4 Pistas inactivas y ocultas</h3>
+<p>Una pista <strong>inactiva</strong> no suena ni consume recursos. Una pista <strong>oculta</strong> desaparece de la vista pero sigue sonando. <strong>Pista › Mostrar todas las pistas</strong> las vuelve a mostrar.</p>
+<hr>
+<h2 id="7-grabacion">7. Grabación</h2>
+<h3 id="7-1-preparacion">7.1 Preparación</h3>
+<ol>
+<li>Conecta tu micrófono o interfaz de audio.</li>
+<li>En <strong>Archivo › Preferencias</strong> elige el <strong>dispositivo de entrada</strong>.</li>
+<li>Crea una pista de audio (mono para un micrófono, estéreo para fuentes estéreo) y elige su <strong>Entrada</strong>.</li>
+<li>Pulsa <strong>●</strong> en la pista para armarla. La primera vez se pedirá permiso de micrófono.</li>
+<li>Activa <strong>I</strong> si deseas escucharte (usa audífonos para evitar acoples).</li>
+</ol>
+<h3 id="7-2-grabar">7.2 Grabar</h3>
+<ul>
+<li>Coloca el cabezal donde quieras empezar y pulsa <strong>Grabar</strong> (Ctrl+Espacio, F12 o el botón rojo). Pulsa <strong>Espacio</strong> o <strong>Detener</strong> para terminar.</li>
+<li><strong>Preconteo</strong>: elige 1 o 2 compases en la barra de herramientas; el metrónomo sonará antes de empezar.</li>
+<li><strong>Metrónomo</strong>: botón con forma de metrónomo o tecla <strong>C</strong>. Su volumen se ajusta en Preferencias.</li>
+<li>Puedes armar varias pistas a la vez (cada una toma su entrada).</li>
+<li>Las pistas de <strong>instrumento</strong> armadas graban lo que toques en un teclado MIDI USB o en el teclado virtual del Editor MIDI.</li>
+</ul>
+<h3 id="7-3-punch-in-out">7.3 Punch in/out</h3>
+<p>Selecciona un rango con el <strong>Selector</strong> y elige <strong>Evento › Punch in/out = selección</strong>. Al grabar, la reproducción empieza 2 segundos antes y solo se conserva el audio dentro del rango (ideal para corregir una frase).</p>
+<h3 id="7-4-grabacion-en-bucle-con-tomas">7.4 Grabación en bucle con tomas</h3>
+<p>Activa el <strong>bucle</strong> (tecla L) sobre la sección y graba. Cada pasada se guarda como una <strong>lista de reproducción</strong> nueva (“Toma 2”, “Toma 3”…). Cámbialas desde el selector <strong>Toma</strong> o deja que la IA elija lo mejor de cada una (<strong>IA › Elegir las mejores tomas</strong>).</p>
+<h3 id="7-5-latencia">7.5 Latencia</h3>
+<p>Músicos MX compensa automáticamente la latencia informada por el sistema. Si notas que lo grabado queda ligeramente desfasado, ajusta <strong>Compensación de latencia extra (muestras)</strong> en Preferencias (48 muestras = 1 ms a 48 kHz).</p>
+<hr>
+<h2 id="8-edicion">8. Edición</h2>
+<p><img src="img/edicion.png" alt="Ventana de Edición"></p>
+<h3 id="8-1-modos-de-edicion">8.1 Modos de edición</h3>
+<ul>
+<li><strong>Shuffle (F1)</strong>: los clips se pegan a sus vecinos; al borrar o recortar, el material posterior se desplaza para cerrar el hueco.</li>
+<li><strong>Slip (F2)</strong>: movimiento libre, sin ajuste.</li>
+<li><strong>Spot (F3)</strong>: al hacer clic en un clip con la herramienta Mano, se abre un diálogo para escribir su posición exacta (min:seg o compás|tiempo).</li>
+<li><strong>Grid (F4)</strong>: todo se ajusta a la rejilla elegida.</li>
+</ul>
+<h3 id="8-2-herramientas">8.2 Herramientas</h3>
+<ul>
+<li><strong>Zoom (F5)</strong>: clic para acercar, Alt+clic para alejar.</li>
+<li><strong>Recorte (F6)</strong>: arrastra el borde de un clip para alargarlo o acortarlo.</li>
+<li><strong>Selector (F7)</strong>: arrastra para seleccionar un rango de tiempo en una o varias pistas; clic para colocar el cursor.</li>
+<li><strong>Mano (F8)</strong>: mueve clips (también entre pistas compatibles). <strong>Alt+arrastrar</strong> duplica.</li>
+<li><strong>Inteligente (✦)</strong>: combina todas: mitad superior del clip = Selector, mitad inferior = Mano, bordes = Recorte, esquinas superiores = fundidos.</li>
+<li><strong>Scrub (F9)</strong>: arrastra sobre un clip para escuchar el audio a la velocidad del ratón.</li>
+<li><strong>Lápiz (F10)</strong>: dibuja automatización, crea clips MIDI en pistas de instrumento y abre el Editor MIDI.</li>
+</ul>
+<h3 id="8-3-navegar">8.3 Navegar</h3>
+<ul>
+<li>Clic en la <strong>regla</strong> para mover el cabezal; arrastra en la franja dorada superior para definir el <strong>bucle</strong>; doble clic crea un <strong>marcador</strong>.</li>
+<li><strong>Ctrl+rueda</strong>: zoom horizontal. <strong>Alt+rueda</strong>: aumenta la altura de las formas de onda. <strong>T / R</strong>: acercar/alejar. <strong>Alt+A</strong>: ver toda la sesión.</li>
+<li>Flechas ←/→ mueven el cabezal un tiempo; ↑/↓ cambian de pista seleccionada.</li>
+<li><strong>F</strong>: activa o desactiva que la vista siga al cabezal.</li>
+</ul>
+<h3 id="8-4-operaciones-con-clips">8.4 Operaciones con clips</h3>
+<table>
+<thead>
+<tr>
+<th>Acción</th>
+<th>Cómo</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Dividir</td>
+<td>Ctrl+E o B en la posición del cabezal (o en los bordes de la selección)</td>
+</tr>
+<tr>
+<td>Duplicar</td>
+<td>Ctrl+D</td>
+</tr>
+<tr>
+<td>Cortar / Copiar / Pegar</td>
+<td>Ctrl+X / Ctrl+C / Ctrl+V (se pega en el cabezal, en la pista seleccionada)</td>
+</tr>
+<tr>
+<td>Borrar</td>
+<td>Supr. Con un rango seleccionado borra solo ese rango</td>
+</tr>
+<tr>
+<td>Recortar a la selección</td>
+<td>Ctrl+T</td>
+</tr>
+<tr>
+<td>Fundidos</td>
+<td>Arrastra las esquinas superiores del clip, o selecciona sobre el borde y pulsa Ctrl+F</td>
+</tr>
+<tr>
+<td>Ganancia de clip</td>
+<td>Ctrl+Shift+↑/↓ (±1 dB) o clic derecho › Ganancia de clip</td>
+</tr>
+<tr>
+<td>Silenciar clip</td>
+<td>Ctrl+M</td>
+</tr>
+<tr>
+<td>Desplazar (nudge)</td>
+<td>+ / − mueven los clips seleccionados un valor de rejilla</td>
+</tr>
+<tr>
+<td>Cuantizar clips</td>
+<td>Edición › Cuantizar inicio de clips a la rejilla</td>
+</tr>
+<tr>
+<td>Consolidar</td>
+<td>Edición › Consolidar clip: une todo lo seleccionado en un solo archivo</td>
+</tr>
+<tr>
+<td>Varispeed</td>
+<td>Clic derecho › Varispeed: cambia velocidad y tono como una cinta</td>
+</tr>
+<tr>
+<td>Quitar silencios</td>
+<td>Ctrl+U: divide el clip y elimina las partes en silencio</td>
+</tr>
+</tbody></table>
+<h3 id="8-5-marcadores">8.5 Marcadores</h3>
+<p><strong>Enter del teclado numérico</strong> o doble clic en la regla crea un marcador. <strong>Ventana › Marcadores</strong> (Ctrl+5) permite renombrarlos, saltar a ellos y borrarlos. También puedes crearlos automáticamente desde una transcripción.</p>
+<h3 id="8-6-bucle">8.6 Bucle</h3>
+<p>Botón de bucle o tecla <strong>L</strong>. Si hay un rango seleccionado al activarlo, se usa como región de bucle. <strong>Ctrl+Shift+L</strong> convierte la selección en bucle.</p>
+<h3 id="8-7-navegador-de-clips">8.7 Navegador de clips</h3>
+<p><img src="img/navegador.png" alt="Navegador de clips"></p>
+<p>El botón <strong>☰</strong> abre la lista de todo el audio de la sesión. Arrastra un elemento a una pista para colocarlo; doble clic para escucharlo. <strong>Importar…</strong> añade archivos a la lista sin colocarlos.</p>
+<h3 id="8-8-importar">8.8 Importar</h3>
+<p><strong>Archivo › Importar audio</strong> (Ctrl+Shift+I) o arrastra archivos desde tu explorador a la línea de tiempo. Formatos: WAV, AIFF, MP3, FLAC, OGG, Opus, M4A/AAC y el audio de archivos de video. Los archivos MIDI (<code>.mid</code>) crean pistas de instrumento con sus notas.</p>
+<hr>
+<h2 id="9-editor-midi-e-instrumentos">9. Editor MIDI e instrumentos</h2>
+<p><img src="img/editor-midi.png" alt="Editor MIDI"></p>
+<h3 id="9-1-abrir">9.1 Abrir</h3>
+<p>Doble clic en un clip MIDI, o con la herramienta <strong>Lápiz</strong> haz clic en una pista de instrumento para crear un clip de un compás.</p>
+<h3 id="9-2-editar-notas">9.2 Editar notas</h3>
+<ul>
+<li><strong>Seleccionar</strong>: clic en una nota; arrastrar en vacío dibuja un rectángulo de selección; Shift añade a la selección.</li>
+<li>Arrastra una nota para moverla (tiempo y tono); arrastra su borde derecho para cambiar la duración.</li>
+<li><strong>Lápiz</strong>: clic en vacío crea una nota del tamaño de la rejilla. <strong>Doble clic</strong> (con Seleccionar) crea o borra notas.</li>
+<li><strong>Borrar</strong>: clic sobre la nota, o Supr con notas seleccionadas.</li>
+<li><strong>Carril de velocidad</strong> (abajo): arrastra para cambiar la fuerza de las notas.</li>
+<li>Botones: <strong>Cuantizar</strong>, <strong>Humanizar</strong> (pequeñas variaciones naturales), <strong>−8va / −1 / +1 / +8va</strong>, <strong>Legato</strong>, <strong>Velocidad…</strong>, <strong>A escala</strong> (corrige notas fuera de la tonalidad de la sesión), <strong>Todo</strong>, <strong>Exportar .mid</strong>.</li>
+<li><strong>Ctrl+rueda</strong> zoom horizontal; rueda desplaza en vertical; Shift+rueda en horizontal.</li>
+</ul>
+<h3 id="9-3-teclado-virtual">9.3 Teclado virtual</h3>
+<p>Toca con el ratón/dedo el teclado inferior o con tu teclado de computadora: <strong>A W S E D F T G Y H U J K O L P</strong> (una octava y media). <strong>Z / X</strong> bajan o suben la octava. Si la pista está armada y estás grabando, las notas se registran.</p>
+<h3 id="9-4-instrumentos-integrados">9.4 Instrumentos integrados</h3>
+<p>Botón <strong>🎹</strong> del encabezado o <strong>Pista › Instrumento</strong>:</p>
+<ul>
+<li><strong>Sintetizador</strong>: Piano eléctrico, Piano de cola, Pad cálido, Bajo sintético, Bajo eléctrico, Lead brillante, Órgano, Cuerdas, Metales, Marimba, Campanas, Acordeón y Guitarra pulsada. Ajustes de brillo, ataque, liberación y desafinación.</li>
+<li><strong>Batería</strong>: kits Acústica, Electrónica 808 y Latina (incluye congas, bongós, güiro, maracas, claves, cencerro y wood block), con el mapa General MIDI (36 bombo, 38 tarola, 42 hi-hat cerrado, 46 abierto, 49 crash, 51 ride…).</li>
+</ul>
+<h3 id="9-5-teclados-midi-externos">9.5 Teclados MIDI externos</h3>
+<p>Conecta un controlador USB: Músicos MX lo detecta automáticamente y toca la pista de instrumento armada (o la seleccionada).</p>
+<hr>
+<h2 id="10-mezcla">10. Mezcla</h2>
+<p><img src="img/mezcla.png" alt="Ventana de Mezcla"></p>
+<h3 id="10-1-el-canal">10.1 El canal</h3>
+<p>De arriba hacia abajo: <strong>Inserciones</strong> (a–f), <strong>Envíos</strong> (f–i), <strong>Salida</strong> (Master o un bus auxiliar), <strong>modo de automatización</strong>, <strong>paneo</strong> (arrastra arriba/abajo; doble clic centra), botones <strong>● S M</strong>, <strong>fader</strong> con escala en dB y <strong>medidor</strong> de pico con retención, valor en dB y nombre (doble clic para renombrar).</p>
+<ul>
+<li>Fader: arrastra; <strong>Ctrl+arrastrar</strong> para ajuste fino; rueda del ratón ±0.5 dB; doble clic = 0 dB.</li>
+<li>El canal <strong>Master</strong> muestra la sonoridad momentánea (LUFS), el botón <strong>✨ Masterizar</strong> y sus propias inserciones.</li>
+</ul>
+<h3 id="10-2-inserciones">10.2 Inserciones</h3>
+<p>Clic en una ranura vacía para elegir un complemento. Clic en una ocupada para abrir su ventana. Clic derecho: abrir, omitir (bypass), subir, bajar o quitar.</p>
+<h3 id="10-3-envios-y-buses-auxiliares">10.3 Envíos y buses auxiliares</h3>
+<p>Clic en una ranura de envío para elegir el bus de destino o crear uno nuevo ya configurado con <strong>Reverb</strong> o <strong>Delay</strong>. Con la rueda del ratón sobre el envío ajustas su nivel. Clic de nuevo para cambiar a <strong>pre-fader</strong>, editar el nivel o quitarlo.</p>
+<h3 id="10-4-panoramizador-3d-binaural">10.4 Panoramizador 3D binaural</h3>
+<p><strong>Pista › Panoramizador 3D / binaural</strong> sustituye el paneo estéreo por un posicionador espacial con HRTF: arrastra el punto alrededor del oyente y ajusta la altura. Escucha con audífonos para percibir delante, detrás, arriba y abajo.</p>
+<h3 id="10-5-automatizacion">10.5 Automatización</h3>
+<ol>
+<li>Elige el modo en el canal o en el encabezado: <strong>Leer</strong> reproduce la automatización; <strong>Escribir</strong> graba todos los movimientos durante la reproducción; <strong>Touch</strong> graba solo mientras mueves el control; <strong>Latch</strong> graba desde que lo tocas hasta que detienes.</li>
+<li>Para editar a mano, cambia la <strong>Vista</strong> de la pista a <em>Volumen</em> o <em>Paneo</em>: clic sobre la línea añade un punto, arrastra para moverlo, <strong>Alt+clic</strong> lo borra y con el <strong>Lápiz</strong> puedes dibujar curvas libres.</li>
+<li><strong>Pista › Limpiar automatización</strong> borra todos los puntos.</li>
+</ol>
+<hr>
+<h2 id="11-complementos-incluidos">11. Complementos incluidos</h2>
+<p><img src="img/complemento-eq.png" alt="Ventana de complemento"></p>
+<p>Todos tienen presets de fábrica (cuando aplica), botón <strong>Activo/Omitido</strong> y deslizadores (doble clic restablece el valor). Los cambios suenan en tiempo real.</p>
+<table>
+<thead>
+<tr>
+<th>Complemento</th>
+<th>Para qué sirve</th>
+<th>Parámetros</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>EQ 7 bandas</strong></td>
+<td>Esculpir el timbre; muestra la curva de respuesta</td>
+<td>Pasa altos, grave (shelf), 3 paramétricos (frecuencia, ganancia, Q), agudo (shelf), pasa bajos, salida</td>
+</tr>
+<tr>
+<td><strong>Compresor/Limitador Dyn</strong></td>
+<td>Controlar la dinámica</td>
+<td>Umbral, proporción, ataque, liberación, rodilla, ganancia de compensación, mezcla paralela; medidor de reducción</td>
+</tr>
+<tr>
+<td><strong>Maximizador/Limitador</strong></td>
+<td>Subir la sonoridad sin superar un techo</td>
+<td>Ganancia de entrada, techo, liberación</td>
+</tr>
+<tr>
+<td><strong>Compuerta de ruido</strong></td>
+<td>Cerrar el canal entre frases o golpes</td>
+<td>Umbral, rango, ataque, retención, liberación</td>
+</tr>
+<tr>
+<td><strong>De-Esser</strong></td>
+<td>Suavizar las “s” y “ch” agresivas</td>
+<td>Frecuencia, umbral, reducción máxima</td>
+</tr>
+<tr>
+<td><strong>Reverberación Espacio</strong></td>
+<td>Ambiente de sala, salón, placa o catedral</td>
+<td>Tamaño, caída, pre-retardo, amortiguación, mezcla</td>
+</tr>
+<tr>
+<td><strong>Retardo Mod</strong></td>
+<td>Ecos libres o sincronizados al tempo, ping-pong</td>
+<td>Tiempo, sincronía (1/4, 1/8…), realimentación, cortes de graves/agudos, mezcla, ping-pong</td>
+</tr>
+<tr>
+<td><strong>Coro/Flanger</strong></td>
+<td>Engrosar y mover el sonido</td>
+<td>Velocidad, profundidad, retardo base, realimentación, mezcla</td>
+</tr>
+<tr>
+<td><strong>Saturación Cinta/Válvula</strong></td>
+<td>Calidez y armónicos</td>
+<td>Impulso, tipo, tono, salida, mezcla</td>
+</tr>
+<tr>
+<td><strong>Filtro Barrido</strong></td>
+<td>Filtros pasa bajos/altos/banda con LFO</td>
+<td>Tipo, corte, resonancia, velocidad y profundidad del LFO</td>
+</tr>
+<tr>
+<td><strong>Trémolo/Auto-paneo</strong></td>
+<td>Modulación de volumen o de posición</td>
+<td>Velocidad, profundidad, modo</td>
+</tr>
+<tr>
+<td><strong>Imagen estéreo</strong></td>
+<td>Ancho estéreo, mono, fase</td>
+<td>Anchura, ganancia, invertir fase izquierda, mono</td>
+</tr>
+<tr>
+<td><strong>Desafinador/Doblador</strong></td>
+<td>Doblaje artificial de voces (ADT)</td>
+<td>Desafinación, retardo, mezcla</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="12-audiosuite-procesamiento-fuera-de-linea">12. AudioSuite (procesamiento fuera de línea)</h2>
+<p>Selecciona uno o varios clips (o un rango con el Selector; se dividirá en sus bordes) y elige un proceso del menú <strong>AudioSuite</strong>. Se crea un <strong>archivo nuevo</strong>; el original permanece en el Navegador de clips y la operación se puede deshacer.</p>
+<table>
+<thead>
+<tr>
+<th>Proceso</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Normalizar</strong></td>
+<td>Lleva el pico a un nivel (p. ej. −1 dBFS) o la sonoridad a un objetivo LUFS</td>
+</tr>
+<tr>
+<td><strong>Ganancia</strong></td>
+<td>Sube o baja el nivel en dB</td>
+</tr>
+<tr>
+<td><strong>Invertir (reversa)</strong></td>
+<td>Reproduce el audio al revés</td>
+</tr>
+<tr>
+<td><strong>Invertir polaridad</strong></td>
+<td>Corrige problemas de fase entre micrófonos</td>
+</tr>
+<tr>
+<td><strong>Eliminar DC</strong></td>
+<td>Quita el desplazamiento de corriente continua</td>
+</tr>
+<tr>
+<td><strong>Silencio</strong></td>
+<td>Reemplaza por silencio</td>
+</tr>
+<tr>
+<td><strong>Compresión/Expansión de tiempo</strong></td>
+<td>Cambia la duración sin cambiar el tono (algoritmo WSOLA). Indica un factor o el BPM original y el de destino para ajustar loops al tempo de la sesión</td>
+</tr>
+<tr>
+<td><strong>Cambio de tono</strong></td>
+<td>Transpone en semitonos y cents sin cambiar la duración</td>
+</tr>
+<tr>
+<td><strong>Reducción de ruido (IA)</strong></td>
+<td>Ver sección 13.5</td>
+</tr>
+<tr>
+<td><strong>Afinación automática (IA)</strong></td>
+<td>Ver sección 13.4</td>
+</tr>
+<tr>
+<td><strong>Renderizar inserciones</strong></td>
+<td>Aplica los efectos de la pista al clip de forma permanente</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="13-inteligencia-artificial">13. Inteligencia artificial</h2>
+<p><img src="img/menu-ia.png" alt="Menú IA"></p>
+<p>Todas las funciones de IA de Músicos MX <strong>se ejecutan en tu equipo</strong>: tu audio no se envía a ningún servidor. Están disponibles en el menú <strong>IA</strong>, en el <strong>clic derecho</strong> de un clip y en el panel <strong>✨ Asistente IA</strong>.</p>
+<p><img src="img/menu-clip-ia.png" alt="Menú contextual con funciones de IA"></p>
+<h3 id="13-1-asistente-de-sesion-lenguaje-natural">13.1 Asistente de sesión (lenguaje natural)</h3>
+<p><img src="img/asistente-ia.png" alt="Asistente IA"></p>
+<p>Abre el panel con <strong>Ctrl+K</strong> o el botón ✨ y escribe en español lo que necesitas. Puedes encadenar órdenes con <strong>“y luego”</strong> o <strong>“;”</strong>. Ejemplos:</p>
+<ul>
+<li><code>crea 4 pistas de audio</code> · <code>crea una pista de instrumento llamada Piano</code></li>
+<li><code>tempo 96</code> · <code>compás 3/4</code> · <code>metrónomo encendido</code></li>
+<li><code>reproduce</code> · <code>detén</code> · <code>graba</code> · <code>ve al compás 17</code> · <code>ve al inicio</code></li>
+<li><code>silencia la pista Batería</code> · <code>solo a Voz</code> · <code>arma la pista 2</code></li>
+<li><code>volumen de Voz a -6</code> · <code>sube el bajo 3 dB</code> · <code>paneo de Guitarra a la izquierda 40</code></li>
+<li><code>agrega reverb a Voz</code> · <code>pon un compresor en el bajo</code> · <code>agrega limitador al master</code></li>
+<li><code>normaliza la pista 3</code> · <code>quita silencios de Voz</code> · <code>limpia el ruido de Diálogo</code> · <code>afina la Voz</code></li>
+<li><code>bucle del compás 5 al 9</code> · <code>marcador Coro</code></li>
+<li><code>genera batería de cumbia de 8 compases</code> · <code>genera acordes en La menor</code> · <code>genera bajo</code> · <code>genera melodía</code></li>
+<li><code>separa los stems de la pista Mezcla</code> · <code>transcribe la pista Entrevista</code> · <code>detecta tempo de Batería</code></li>
+<li><code>mezcla automática</code> · <code>masteriza para streaming</code> · <code>exporta la mezcla en mp3</code> · <code>exporta stems</code></li>
+<li><code>renombra la pista 1 a Bombo</code> · <code>elimina la pista 4</code> · <code>deshaz</code> · <code>guarda</code></li>
+</ul>
+<p>Escribe <strong>ayuda</strong> para ver la lista completa.</p>
+<p><strong>Modelo de lenguaje local opcional.</strong> Para peticiones más libres (“prepara una sesión para grabar un trío norteño con sus efectos”), instala <a href="https://ollama.com">Ollama</a> (libre), descarga un modelo (por ejemplo <code>ollama pull llama3.2</code>) y activa <strong>IA › Configuración de IA › Usar LLM local</strong>. El asistente traducirá tu petición a órdenes y las ejecutará.</p>
+<h3 id="13-2-separar-stems">13.2 Separar stems</h3>
+<p>Divide una mezcla en <strong>Voz, Batería, Bajo y Otros instrumentos</strong>, cada uno en una pista nueva alineada con el original (que queda silenciada). Útil para karaokes, remezclas, practicar, o rescatar una grabación sin multipistas.
+<em>Cómo funciona</em>: separación espectral armónico/percusiva (HPSS), detección de fuente central y bandas de frecuencia. Funciona mejor con mezclas estéreo donde la voz está al centro. Una canción de 3–4 minutos tarda de 1 a 3 minutos según el equipo.</p>
+<h3 id="13-3-transcribir-voz-a-texto">13.3 Transcribir voz a texto</h3>
+<p>Convierte diálogos, entrevistas o letras en texto con marcas de tiempo usando el modelo libre <strong>Whisper</strong> (tiny, base o small). Desde la ventana de transcripción puedes: hacer clic en una línea para ir a ese momento, <strong>crear marcadores</strong> con cada frase, <strong>copiar</strong> el texto o exportarlo como <strong>SRT</strong> (subtítulos) o <strong>TXT</strong>. La primera vez descarga el modelo; después funciona sin conexión.</p>
+<h3 id="13-4-afinacion-automatica">13.4 Afinación automática</h3>
+<p>Detecta el tono de una voz o instrumento monofónico y lo corrige hacia la escala elegida.</p>
+<ul>
+<li><strong>Intensidad</strong>: 1 = corrección total; 0.5 = mitad del camino.</li>
+<li><strong>Velocidad</strong>: 0 = efecto robótico característico; 0.5–0.9 = corrección natural.
+Consejo: establece primero la tonalidad de la sesión o usa <strong>Detectar tempo y tonalidad</strong>.</li>
+</ul>
+<h3 id="13-5-limpieza-de-ruido-de-voz">13.5 Limpieza de ruido de voz</h3>
+<p>Aprende el perfil de ruido de las partes más silenciosas del clip (aire acondicionado, ventilador, siseo, zumbido) y lo atenúa sin afectar la voz. Ajusta <strong>Reducción</strong> (dB) y <strong>Sensibilidad</strong>; valores altos pueden producir artefactos.</p>
+<h3 id="13-6-audio-a-midi">13.6 Audio a MIDI</h3>
+<p>Convierte una melodía monofónica (voz, bajo, silbido, instrumento solista) en notas MIDI en una nueva pista de instrumento, o los golpes de una percusión en notas de batería para reemplazarla o reforzarla.</p>
+<h3 id="13-7-detectar-tempo-y-tonalidad">13.7 Detectar tempo y tonalidad</h3>
+<p>Analiza un clip y muestra el <strong>BPM</strong>, la <strong>tonalidad</strong> con su confianza, la sonoridad, el pico y el factor de cresta. Botones: <strong>Aplicar a la sesión</strong> y <strong>Ajustar clip al tempo de la sesión</strong> (estiramiento sin cambio de tono).</p>
+<h3 id="13-8-cuantizar-audio-por-ataques">13.8 Cuantizar audio por ataques</h3>
+<p>Detecta los golpes o notas del clip, lo divide en esos puntos y mueve cada fragmento a la rejilla. Ideal para ajustar baterías o guitarras rítmicas tocadas con ligeros adelantos o atrasos. Elige una rejilla adecuada antes (1/8 o 1/16).</p>
+<h3 id="13-9-mezcla-automatica">13.9 Mezcla automática</h3>
+<p>Analiza cada pista (sonoridad LUFS, espectro por tercios de octava y factor de cresta), identifica su rol por nombre y contenido (bombo, tarola, voz, bajo, guitarra, teclados…) y propone un <strong>punto de partida</strong>: niveles balanceados, paneo distribuido, EQ correctiva (corte de graves innecesarios, reducción de “barro” 250–400 Hz y dureza 2.5–4 kHz) y compresión según la dinámica. Verás una tabla con el plan y podrás aplicar <strong>todo</strong> o <strong>solo niveles y paneo</strong>.</p>
+<h3 id="13-10-masterizacion-asistida">13.10 Masterización asistida</h3>
+<p>Renderiza la mezcla, analiza su sonoridad y balance tonal y crea una cadena en el Master: <strong>EQ → Compresor → Imagen estéreo → Limitador</strong>. Elige el destino (Streaming −14 LUFS, Apple Music −16, Club −9, Radio/TV EBU R128 −23, Podcast −16, CD −10). Opcionalmente carga una <strong>canción de referencia</strong>: la EQ se ajusta para parecerse a su balance tonal. Músicos MX mide el resultado y corrige el limitador hasta acercarse al objetivo, y te muestra la sonoridad y el pico verdadero antes y después.</p>
+<h3 id="13-11-elegir-las-mejores-tomas-auto-comping">13.11 Elegir las mejores tomas (auto-comping)</h3>
+<p>En una pista con varias listas de reproducción, evalúa cada compás de cada toma (nivel, saturación, consistencia) y crea una lista <strong>“Comp IA”</strong> con el mejor fragmento de cada una, con fundidos cortos en las uniones. Revisa y ajusta a tu gusto.</p>
+<h3 id="13-12-compositor-ia">13.12 Compositor IA</h3>
+<p>Genera ideas musicales originales con teoría musical y variación aleatoria controlada:</p>
+<ul>
+<li><strong>Batería</strong> por género: Pop, Rock, Cumbia, Reggaetón, Hip-hop, House, Balada, Norteño/Polka, Bolero, Trap, Funk y Jazz, con remates (fills) y notas fantasma.</li>
+<li><strong>Acordes</strong> con progresiones comunes en tonalidad mayor o menor (sostenidos, arpegio o rítmicos).</li>
+<li><strong>Bajo</strong> (notas largas, corcheas, cumbia o caminante).</li>
+<li><strong>Melodía</strong> que respeta los acordes.
+Se insertan en el cabezal como clips MIDI editables. Cada vez que lo uses obtendrás una variación diferente.</li>
+</ul>
+<h3 id="13-13-analisis-de-sonoridad">13.13 Análisis de sonoridad</h3>
+<p><strong>IA › Análisis de sonoridad</strong> renderiza la mezcla final y muestra la sonoridad integrada (LUFS), el pico verdadero (dBTP), el RMS y la cresta, con referencias para cada plataforma.</p>
+<hr>
+<h2 id="14-video-y-post-produccion">14. Video y post-producción</h2>
+<ol>
+<li><strong>Archivo › Importar video</strong> (MP4, WebM, MOV según el códec que soporte tu sistema). Se crea una pista de video arriba y el audio del video se coloca en una pista nueva.</li>
+<li>Botón <strong>🎬</strong> abre la ventana de video, que sigue al transporte (reproducción, saltos y bucles).</li>
+<li>Usa la plantilla <strong>Post-producción de video</strong> para tener pistas de diálogo, ADR, foley, efectos, ambientes y música.</li>
+<li>Transcribe los diálogos para crear marcadores y exportar subtítulos <strong>SRT</strong>.</li>
+<li>El contador puede mostrar <strong>código de tiempo</strong> (clic en el contador).</li>
+</ol>
+<hr>
+<h2 id="15-exportacion">15. Exportación</h2>
+<p><img src="img/exportar.png" alt="Exportar"></p>
+<h3 id="15-1-bounce-de-mezcla-y-stems">15.1 Bounce de mezcla y stems</h3>
+<p><strong>Archivo › Exportar / Bounce de mezcla</strong> (Ctrl+Alt+B):</p>
+<ul>
+<li><strong>Rango</strong>: sesión completa, selección o región de bucle.</li>
+<li><strong>Contenido</strong>: mezcla estéreo, stems (un archivo por pista, sin la cadena del master) o ambos.</li>
+<li><strong>Formato</strong>: WAV 24 bits, WAV 16 bits (con dither TPDF), WAV 32 bits flotante, MP3 320 o 192 kbps, o WAV + MP3.</li>
+<li><strong>Frecuencia de muestreo</strong>: 44.1, 48 o 96 kHz.</li>
+<li><strong>Cola adicional</strong>: segundos extra para que terminen reverberaciones y ecos.</li>
+<li><strong>Añadir el bounce a la sesión</strong>: importa el resultado en una pista nueva.</li>
+</ul>
+<p>Al terminar se muestran la sonoridad integrada y el pico verdadero del archivo. Cuando hay varios archivos se entregan en un ZIP.</p>
+<h3 id="15-2-fabrica-de-bounces">15.2 Fábrica de bounces</h3>
+<p><strong>Archivo › Fábrica de bounces</strong> genera de una vez todas las versiones de entrega: mezcla principal, <strong>instrumental</strong>, <strong>a cappella</strong>, <strong>TV mix</strong> y stems, en WAV 24 bits y opcionalmente MP3, dentro de un ZIP con un archivo de información. Las voces se identifican por el nombre de la pista (voz, vocal, coro, lead…).</p>
+<h3 id="15-3-midi">15.3 MIDI</h3>
+<p><strong>Archivo › Exportar MIDI de la sesión</strong> crea un <code>.mid</code> con todos los clips MIDI. Desde el Editor MIDI puedes exportar un clip individual.</p>
+<hr>
+<h2 id="16-preferencias">16. Preferencias</h2>
+<p><strong>Archivo › Preferencias</strong> (Ctrl+,): dispositivo de entrada, compensación de latencia, monitorizar al armar, volver al punto de inicio al detener, seguir el cabezal, autoguardado, tema claro/oscuro y volumen del metrónomo. <strong>IA › Configuración de IA</strong>: servidor y modelo LLM local, uso del LLM y modelo de transcripción.</p>
+<hr>
+<h2 id="17-atajos-de-teclado">17. Atajos de teclado</h2>
+<p>En macOS usa <strong>⌘</strong> en lugar de <strong>Ctrl</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Atajo</th>
+<th>Acción</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Espacio</td>
+<td>Reproducir / detener</td>
+</tr>
+<tr>
+<td>Ctrl+Espacio · F12 · 3 (num)</td>
+<td>Grabar</td>
+</tr>
+<tr>
+<td>Enter · Inicio</td>
+<td>Volver al inicio</td>
+</tr>
+<tr>
+<td>Fin</td>
+<td>Ir al final</td>
+</tr>
+<tr>
+<td>L · Ctrl+Shift+L</td>
+<td>Bucle / bucle desde selección</td>
+</tr>
+<tr>
+<td>C · 7 (num)</td>
+<td>Metrónomo</td>
+</tr>
+<tr>
+<td>F1–F4</td>
+<td>Shuffle / Slip / Spot / Grid</td>
+</tr>
+<tr>
+<td>F5–F10</td>
+<td>Zoom / Recorte / Selector / Mano / Scrub / Lápiz</td>
+</tr>
+<tr>
+<td>T / R</td>
+<td>Acercar / alejar</td>
+</tr>
+<tr>
+<td>Alt+A</td>
+<td>Ajustar sesión a la ventana</td>
+</tr>
+<tr>
+<td>F</td>
+<td>Seguir el cabezal</td>
+</tr>
+<tr>
+<td>B · Ctrl+E</td>
+<td>Dividir</td>
+</tr>
+<tr>
+<td>Ctrl+D</td>
+<td>Duplicar</td>
+</tr>
+<tr>
+<td>Ctrl+X / C / V</td>
+<td>Cortar / copiar / pegar</td>
+</tr>
+<tr>
+<td>Supr / Retroceso</td>
+<td>Borrar</td>
+</tr>
+<tr>
+<td>Ctrl+A</td>
+<td>Seleccionar todo</td>
+</tr>
+<tr>
+<td>Ctrl+T</td>
+<td>Recortar a la selección</td>
+</tr>
+<tr>
+<td>Ctrl+F</td>
+<td>Fundidos desde la selección</td>
+</tr>
+<tr>
+<td>Ctrl+M</td>
+<td>Silenciar clip</td>
+</tr>
+<tr>
+<td>Ctrl+U</td>
+<td>Quitar silencios</td>
+</tr>
+<tr>
+<td>Ctrl+Shift+↑ / ↓</td>
+<td>Ganancia de clip ±1 dB</td>
+</tr>
+<tr>
+<td>+ / −</td>
+<td>Nudge</td>
+</tr>
+<tr>
+<td>← / →</td>
+<td>Mover cabezal un tiempo</td>
+</tr>
+<tr>
+<td>↑ / ↓</td>
+<td>Pista anterior / siguiente</td>
+</tr>
+<tr>
+<td>Ctrl+Z / Ctrl+Shift+Z</td>
+<td>Deshacer / rehacer</td>
+</tr>
+<tr>
+<td>Ctrl+N / Ctrl+O / Ctrl+S</td>
+<td>Nueva / abrir / guardar sesión</td>
+</tr>
+<tr>
+<td>Ctrl+Shift+N</td>
+<td>Nuevas pistas</td>
+</tr>
+<tr>
+<td>Ctrl+Shift+I</td>
+<td>Importar audio</td>
+</tr>
+<tr>
+<td>Ctrl+Alt+B</td>
+<td>Exportar / bounce</td>
+</tr>
+<tr>
+<td>Ctrl+=</td>
+<td>Alternar Edición / Mezcla</td>
+</tr>
+<tr>
+<td>Ctrl+Alt+=</td>
+<td>Editor MIDI</td>
+</tr>
+<tr>
+<td>Ctrl+5</td>
+<td>Marcadores</td>
+</tr>
+<tr>
+<td>Enter (num)</td>
+<td>Nuevo marcador</td>
+</tr>
+<tr>
+<td>Ctrl+K</td>
+<td>Asistente IA</td>
+</tr>
+<tr>
+<td>Ctrl+,</td>
+<td>Preferencias</td>
+</tr>
+<tr>
+<td>Esc</td>
+<td>Quitar selección</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="18-uso-en-android">18. Uso en Android</h2>
+<ul>
+<li>La interfaz se adapta a pantallas pequeñas; en tabletas en horizontal se ve igual que en escritorio.</li>
+<li>Toca y arrastra como con el ratón. Para el menú contextual mantén pulsado o usa los menús superiores (Clip, AudioSuite, IA).</li>
+<li>Usa <strong>audífonos</strong> para grabar y monitorizar.</li>
+<li>Las sesiones y exportaciones se guardan en <strong>Descargas/MusicosMX</strong>; para abrir una sesión usa <strong>Archivo › Abrir sesión</strong> y elige el archivo <code>.mmxs</code>.</li>
+<li>Conecta un teclado MIDI USB con un adaptador OTG si tu dispositivo lo admite.</li>
+<li>Los procesos de IA pesados (separación de stems, transcripción) tardan más en teléfonos; conecta el cargador para sesiones largas.</li>
+</ul>
+<hr>
+<h2 id="19-solucion-de-problemas">19. Solución de problemas</h2>
+<p><strong>No se escucha nada.</strong> Verifica el volumen del sistema, que la pista y el master no estén silenciados (M), que no haya otra pista en Solo y que el fader no esté al mínimo. Pulsa Espacio: en algunos sistemas el audio se activa tras la primera interacción.</p>
+<p><strong>El micrófono no graba.</strong> Concede el permiso de micrófono (en macOS: Ajustes › Privacidad › Micrófono; en Windows: Configuración › Privacidad › Micrófono; en Android: Ajustes › Apps › Músicos MX › Permisos). Elige el dispositivo correcto en Preferencias y arma la pista (●).</p>
+<p><strong>Oigo eco o acople al grabar.</strong> Desactiva la monitorización (I) o usa audífonos.</p>
+<p><strong>Lo grabado queda desfasado.</strong> Ajusta la compensación de latencia extra en Preferencias. Graba un clic y compara con la rejilla para medir el desfase.</p>
+<p><strong>Clics o cortes en la reproducción.</strong> Cierra otras aplicaciones, congela pistas de instrumento con muchos efectos (Pista › Congelar) y reduce el número de reverberaciones (usa un bus auxiliar compartido).</p>
+<p><strong>La transcripción falla.</strong> La primera vez necesita Internet para descargar el modelo. Si tu red bloquea <code>huggingface.co</code> o <code>cdn.jsdelivr.net</code>, prueba desde otra red. Después funciona sin conexión.</p>
+<p><strong>El asistente no entiende mi orden.</strong> Escribe “ayuda” para ver la forma de las órdenes, menciona la pista por su nombre o número, o activa el LLM local.</p>
+<p><strong>No puedo abrir un archivo de audio.</strong> Algunos formatos (por ejemplo ciertos M4A/ALAC en Linux) dependen de los códecs del sistema. Conviértelo a WAV o FLAC.</p>
+<p><strong>Recuperar trabajo tras un cierre inesperado.</strong> Usa <strong>Recuperar autoguardado</strong> en la pantalla de bienvenida.</p>
+<hr>
+<h2 id="20-codigo-fuente-compilacion-y-contribucion">20. Código fuente, compilación y contribución</h2>
+<p>Músicos MX está escrito en JavaScript sobre Web Audio API y se empaqueta con Electron (escritorio) y un contenedor WebView (Android).</p>
+<pre><code>git clone https://github.com/chago2850-blip/Musicos-MX.git
+cd Musicos-MX
+npm install
+npm start              # ejecutar en modo desarrollo
+npm run dist:linux     # .deb, .rpm y AppImage
+npm run dist:win       # instalador .exe y portable
+npm run dist:mac       # .dmg y .zip (en macOS)
+npm run android        # APK (requiere SDK de Android o los paquetes aapt/apksigner)
+</code></pre>
+<p>Estructura: <code>src/js/engine</code> (motor de audio, complementos, instrumentos), <code>src/js/ai</code> (DSP, IA y asistente), <code>src/js/ui</code> (interfaz), <code>electron/</code> (escritorio), <code>android/</code> (app Android), <code>docs/</code> (este manual). Los instaladores para las cuatro plataformas se generan automáticamente con GitHub Actions al publicar una etiqueta <code>v*</code>.</p>
+<p>¿Encontraste un error o tienes una idea? Abre un <em>issue</em> o un <em>pull request</em> en el repositorio. Toda contribución se publica bajo la misma licencia.</p>
+<hr>
+<h2 id="21-licencia">21. Licencia</h2>
+<p>Copyright © 2026 Santiago Miguel.</p>
+<p>Este programa es software libre: puede redistribuirlo y/o modificarlo bajo los términos de la <strong>Licencia Pública General GNU</strong> publicada por la Free Software Foundation, ya sea la versión 3 de la Licencia o (a su elección) cualquier versión posterior.</p>
+<p>Este programa se distribuye con la esperanza de que sea útil, pero <strong>SIN GARANTÍA ALGUNA</strong>; ni siquiera la garantía implícita de COMERCIALIZACIÓN o IDONEIDAD PARA UN PROPÓSITO PARTICULAR. Consulte el archivo <code>LICENSE</code> para más detalles.</p>
+<p>Componentes de terceros: Electron (MIT), JSZip (MIT/GPLv3), lamejs (LGPL), Transformers.js (Apache-2.0) y modelos Whisper de OpenAI (MIT), estos últimos descargados solo si usas la transcripción.</p>
+<p><strong>Contacto</strong>: Santiago Miguel · 744 354 8848 · <a href="mailto:chago2850@gmail.com">chago2850@gmail.com</a></p>
+</main></body></html>

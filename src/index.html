@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!-- Músicos MX — Estación de trabajo de audio digital libre. Copyright (C) 2026 Santiago Miguel. GNU GPL v3 o posterior. -->
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Músicos MX</title>
+<link rel="icon" href="img/logo.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="app">
+  <div id="menubar">
+    <div class="logo"><img src="img/logo.png" alt=""><span>Músicos MX</span></div>
+    <div id="menus" style="display:flex"></div>
+    <div class="spacer"></div>
+    <span id="sessionName">Sin sesión</span>
+    <span id="cpu">48 kHz</span>
+  </div>
+  <div id="toolbar">
+    <div class="group" title="Modos de edición (F1–F4)">
+      <span class="lbl">Modo</span>
+      <div class="seg" id="editModes">
+        <button data-m="shuffle" title="Shuffle (F1): los clips se acomodan uno tras otro">Shuffle</button>
+        <button data-m="slip" title="Slip (F2): movimiento libre">Slip</button>
+        <button data-m="spot" title="Spot (F3): colocar en una posición exacta">Spot</button>
+        <button data-m="grid" class="on" title="Grid (F4): ajustar a la rejilla">Grid</button>
+      </div>
+    </div>
+    <div class="group" title="Herramientas (F5–F10)">
+      <div class="seg" id="tools">
+        <button data-t="zoom" title="Zoom (F5)">🔍</button>
+        <button data-t="trim" title="Recorte (F6)">⇤⇥</button>
+        <button data-t="select" title="Selector (F7)">I</button>
+        <button data-t="grab" title="Mano / Mover (F8)">✋</button>
+        <button data-t="smart" class="on" title="Herramienta inteligente (F6+F7+F8)">✦</button>
+        <button data-t="scrub" title="Scrub (F9)">◎</button>
+        <button data-t="pencil" title="Lápiz (F10)">✎</button>
+      </div>
+    </div>
+    <div class="group">
+      <span class="lbl">Rejilla</span>
+      <select id="gridSel" title="Valor de rejilla">
+        <option value="1">1 compás</option><option value="2">1/2</option><option value="4">1/4</option><option value="8">1/8</option><option value="16" selected>1/16</option><option value="32">1/32</option><option value="12">1/8 tresillo</option><option value="24">1/16 tresillo</option>
+      </select>
+    </div>
+    <div class="group transport">
+      <button id="btnRtz" title="Volver al inicio (Inicio/Enter)"><svg viewBox="0 0 24 24"><path d="M5 5h2v14H5zM9 12l10-7v14z"/></svg></button>
+      <button id="btnRew" title="Retroceder"><svg viewBox="0 0 24 24"><path d="M11 6v12L3 12zM21 6v12l-8-6z"/></svg></button>
+      <button id="btnStop" title="Detener"><svg viewBox="0 0 24 24"><path d="M6 6h12v12H6z"/></svg></button>
+      <button id="btnPlay" title="Reproducir (Espacio)"><svg viewBox="0 0 24 24"><path d="M7 5l12 7-12 7z"/></svg></button>
+      <button id="btnFf" title="Avanzar"><svg viewBox="0 0 24 24"><path d="M13 6v12l8-6zM3 6v12l8-6z"/></svg></button>
+      <button id="btnEnd" title="Ir al final (Fin)"><svg viewBox="0 0 24 24"><path d="M17 5h2v14h-2zM15 12L5 19V5z"/></svg></button>
+      <button id="btnRec" title="Grabar (Ctrl+Espacio o F12)"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/></svg></button>
+      <button id="btnLoop" title="Reproducción en bucle (Ctrl+Shift+L)"><svg viewBox="0 0 24 24"><path d="M7 7h10v3l4-4-4-4v3H5v6h2zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2z"/></svg></button>
+      <button id="btnClick" title="Metrónomo (7 del teclado numérico)"><svg viewBox="0 0 24 24"><path d="M10 2h4l5 20H5zM12 6l-1 5h2z"/></svg></button>
+    </div>
+    <div class="group">
+      <div class="counter" id="ctrMain" title="Contador principal (clic para cambiar formato)">1|1|000</div>
+      <div class="counter sub" id="ctrSub">0:00.000</div>
+    </div>
+    <div class="group">
+      <div class="mini-field"><input id="tempoIn" type="number" min="20" max="300" step="0.1" value="120"><span>Tempo</span></div>
+      <div class="mini-field"><input id="sigIn" type="text" value="4/4"><span>Compás</span></div>
+      <div class="mini-field"><select id="keyIn"></select><span>Tonalidad</span></div>
+      <div class="mini-field"><select id="countIn"><option value="0">No</option><option value="1">1</option><option value="2">2</option></select><span>Preconteo</span></div>
+    </div>
+    <div class="group">
+      <span class="lbl">Zoom</span>
+      <button class="icon-btn" id="zOut" title="Alejar (R)">−</button>
+      <button class="icon-btn" id="zIn" title="Acercar (T)">+</button>
+      <button class="icon-btn" id="zFit" title="Ajustar sesión a la ventana">⤢</button>
+    </div>
+  </div>
+  <div id="tabs">
+    <div class="tab on" data-v="edit">Edición</div>
+    <div class="tab" data-v="mix">Mezcla</div>
+    <div class="tab" data-v="midi">Editor MIDI</div>
+    <div class="spacer"></div>
+    <button class="icon-btn" id="tglLeft" title="Navegador de clips y biblioteca">☰</button>
+    <button class="icon-btn" id="tglVideo" title="Ventana de video">🎬</button>
+    <button class="icon-btn" id="tglAI" title="Asistente de IA">✨</button>
+  </div>
+  <div id="main">
+    <aside class="side" id="leftPanel">
+      <h3>Clips de la sesión <button class="btn small" id="importBtn">Importar…</button></h3>
+      <div class="body" id="assetList"></div>
+    </aside>
+    <div id="center" style="position:relative;overflow:hidden">
+      <div id="editView" class="view on">
+        <div id="corner"><b>Pistas</b><button class="btn small" id="addTrackBtn" title="Nueva pista (Ctrl+Shift+N)">+ Pista</button></div>
+        <div id="rulerWrap"><canvas id="ruler"></canvas></div>
+        <div id="headers"><div id="headersInner"></div></div>
+        <div id="tlScroll"><div id="tlSpacer"></div><canvas id="timeline"></canvas></div>
+      </div>
+      <div id="mixView" class="view"><div id="mixer"></div></div>
+      <div id="midiView" class="view">
+        <div id="midiBar"></div>
+        <div id="rollWrap"><canvas id="roll"></canvas></div>
+        <div id="velWrap"><canvas id="vel"></canvas></div>
+        <div id="vkeys"></div>
+      </div>
+      <div id="welcome"></div>
+    </div>
+    <aside class="side" id="aiPanel">
+      <h3>✨ Asistente IA <span class="x" id="aiClose" style="cursor:pointer">✕</span></h3>
+      <div class="body" id="aiBody"></div>
+      <div class="ai-input"><input id="aiInput" type="text" placeholder="Ej.: crea 3 pistas de audio y agrega reverb a Voz"><button class="btn primary" id="aiSend">Enviar</button></div>
+    </aside>
+  </div>
+  <div id="statusbar"><span class="msg" id="status">Listo.</span><span id="selInfo"></span><span id="lufs">LUFS —</span><span id="srInfo"></span></div>
+</div>
+<div id="modalBack"></div>
+<input type="file" id="fileIn" style="display:none" multiple>
+<script src="app.js"></script>
+</body>
+</html>

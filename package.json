@@ -1,0 +1,178 @@
+{
+  "name": "musicos-mx",
+  "productName": "Músicos MX",
+  "version": "1.0.0",
+  "description": "Estación de trabajo de audio digital (DAW) libre y multiplataforma con inteligencia artificial local",
+  "main": "electron/main.js",
+  "license": "GPL-3.0-or-later",
+  "author": {
+    "name": "Santiago Miguel",
+    "email": "chago2850@gmail.com"
+  },
+  "homepage": "https://github.com/chago2850-blip/Musicos-MX",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chago2850-blip/Musicos-MX.git"
+  },
+  "keywords": [
+    "daw",
+    "audio",
+    "música",
+    "grabación",
+    "mezcla",
+    "masterización",
+    "ia",
+    "gpl"
+  ],
+  "scripts": {
+    "start": "node scripts/build.mjs --dev && electron .",
+    "build": "node scripts/build-manual.mjs && node scripts/build.mjs",
+    "build:pdf": "node scripts/build-manual.mjs --pdf",
+    "dist:linux": "npm run build && electron-builder --linux --publish never",
+    "dist:win": "npm run build && electron-builder --win --publish never",
+    "dist:mac": "npm run build && electron-builder --mac --publish never",
+    "android": "npm run build && bash android/build-apk.sh",
+    "serve": "node scripts/build.mjs && cd dist && python3 -m http.server 8080"
+  },
+  "devDependencies": {
+    "electron": "^38.8.6",
+    "electron-builder": "^26.18.0",
+    "esbuild": "^0.28.2",
+    "marked": "^18.2.1",
+    "puppeteer-core": "^25.18.1",
+    "spdx-license-list": "^6.12.0",
+    "@breezystack/lamejs": "^1.2.7",
+    "jszip": "^3.10.2"
+  },
+  "build": {
+    "appId": "mx.santiagomiguel.musicosmx",
+    "productName": "Músicos MX",
+    "copyright": "Copyright © 2026 Santiago Miguel — GPL-3.0-or-later",
+    "directories": {
+      "output": "release",
+      "buildResources": "build"
+    },
+    "files": [
+      "dist/**",
+      "electron/**",
+      "build/icons/**",
+      "LICENSE",
+      "package.json"
+    ],
+    "fileAssociations": [
+      {
+        "ext": "mmxs",
+        "name": "Sesión de Músicos MX",
+        "description": "Sesión de Músicos MX",
+        "role": "Editor",
+        "mimeType": "application/x-musicos-mx-session"
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Músicos MX",
+      "license": "LICENSE",
+      "artifactName": "Musicos-MX-Setup-${version}.${ext}",
+      "installerIcon": "build/icon.ico",
+      "uninstallerIcon": "build/icon.ico"
+    },
+    "portable": {
+      "artifactName": "Musicos-MX-${version}-portable.${ext}"
+    },
+    "mac": {
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        },
+        {
+          "target": "zip",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        }
+      ],
+      "category": "public.app-category.music",
+      "icon": "build/icon.png",
+      "identity": "-",
+      "hardenedRuntime": false,
+      "artifactName": "Musicos-MX-${version}-mac-${arch}.${ext}",
+      "extendInfo": {
+        "NSMicrophoneUsageDescription": "Músicos MX necesita el micrófono para grabar audio.",
+        "CFBundleDocumentTypes": [
+          {
+            "CFBundleTypeName": "Sesión de Músicos MX",
+            "CFBundleTypeExtensions": [
+              "mmxs"
+            ],
+            "CFBundleTypeRole": "Editor"
+          }
+        ]
+      }
+    },
+    "dmg": {
+      "title": "Músicos MX ${version}"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb",
+        "rpm"
+      ],
+      "category": "AudioVideo",
+      "icon": "build/icons",
+      "executableName": "musicos-mx",
+      "synopsis": "Estación de trabajo de audio digital libre con IA",
+      "description": "Músicos MX: grabación multipista, edición, mezcla, masterización, MIDI y herramientas de inteligencia artificial locales. Software libre GPL-3.0-o-posterior.",
+      "maintainer": "Santiago Miguel <chago2850@gmail.com>",
+      "vendor": "Santiago Miguel",
+      "desktop": {
+        "entry": {
+          "Name": "Músicos MX",
+          "GenericName": "Estación de audio digital",
+          "Comment": "Graba, edita, mezcla y masteriza con IA",
+          "Keywords": "audio;daw;música;grabación;mezcla;midi;",
+          "StartupWMClass": "Músicos MX"
+        }
+      },
+      "syncDesktopName": true
+    },
+    "appImage": {
+      "artifactName": "Musicos-MX-${version}.AppImage"
+    },
+    "deb": {
+      "artifactName": "musicos-mx_${version}_amd64.deb",
+      "packageCategory": "sound",
+      "priority": "optional"
+    },
+    "rpm": {
+      "artifactName": "musicos-mx-${version}.x86_64.rpm"
+    }
+  },
+  "desktopName": "musicos-mx.desktop"
+}
